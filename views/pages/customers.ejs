@@ -25,18 +25,17 @@
           <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Close"></button>
         </div>
       <% } %>
-      <h5 class="card-title">Videos</h5>
+      <h5 class="card-title">Customers</h5>
       <h6 class="card-subtitle mb-2 text-muted">Bogsy Video Store</h6>
       <hr>
       <!-- Button trigger modal -->
-      <button onclick="clearForm('videoForm','/video', 'New video')"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-        <i class="fas fa-plus-square"></i> Add Video
+      <button onclick="clearForm('customerForm','/customers', 'customerFormTitle', 'New Customer')"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#customerModal">
+        <i class="fas fa-plus-square"></i> Add Customer
       </button>
       <div class="row">
-        <%- include('../tables/videos-table') %>
+        <%- include('../tables/customer-table') %>
       </div>
     </div>
   </div>
-  <%- include('../components/video-modal') %>
-  <%- include('../components/video-delete-modal') %>
+<%- include('../components/customer-modal') %>
 <%-include('../includes/footer') %>

@@ -1,0 +1,34 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Name</th>
+            <th class="text-center">Address</th>
+            <th class="text-center">Contact No.</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (customers) { %>
+            <% customers.forEach(customer => { %>
+                <tr>
+                    <td><%=customer._id%></td>
+                    <td scope="row">
+                        <%= customer.givenName %>
+                        <%= customer.middleName[0] %>.
+                        <%= customer.lastName %>
+                    </td>
+                    <td><%=customer.address%></td>
+                    <td><%=customer.contactNum%></td>
+                    <td scope="row">
+                        <button 
+                        onclick="customerUpdate(<%= JSON.stringify(customer) %> )" 
+                        class="btn btn-primary" data-bs-toggle="modal" 
+                        data-bs-target="#customerModal"> Edit</button>
+                    </td>
+                    <td>
+                </tr>
+            <% }) %>
+        <% } %>
+    </tbody>
+</table>

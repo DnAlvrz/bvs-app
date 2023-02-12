@@ -29,14 +29,14 @@
       <h6 class="card-subtitle mb-2 text-muted">Bogsy Video Store</h6>
       <hr>
       <!-- Button trigger modal -->
-      <button onclick="clearForm('videoForm','/video', 'New video')"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#videoModal">
-        <i class="fas fa-plus-square"></i> Add Video
+      <button onclick="clearForm('rentalForm','/rentals', 'rentalFormTitle', 'New Rental')"type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#rentalModal">
+        <i class="fas fa-plus-square"></i> Add Rental
       </button>
       <div class="row">
-        <%- include('../tables/videos-table') %>
+        <%- include('../tables/rental-table') %>
       </div>
     </div>
   </div>
-  <%- include('../components/video-modal') %>
-  <%- include('../components/video-delete-modal') %>
+<%- include('../components/rental-modal') %>
+<%- include('../components/rental-update-modal') %>
 <%-include('../includes/footer') %>

@@ -1,0 +1,35 @@
+<table class="table">
+    <thead>
+        <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Price</th>
+            <th class="text-center">Copies</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (videos) { %>
+            <% videos.forEach(video => { %>
+                <tr>
+                    <td  scope="row"><%=video._id%></td>
+                    <td>
+                        <%= video.title %>
+                    </td>
+                    <td><%=video.price%></td>
+                    <td><%=video.copies%></td>
+                    <td scope="row">
+                        <button 
+                        onclick="updateVideo(<%= JSON.stringify(video) %>)" 
+                        class="btn btn-primary" data-bs-toggle="modal" 
+                        data-bs-target="#videoModal"> Edit</button>
+                        <button 
+                        onclick="deleteVideo('<%= video._id %>')" 
+                        class="btn btn-danger" data-bs-toggle="modal" 
+                        data-bs-target="#deleteVideoModal"> Delete</button>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } %>
+    </tbody>
+</table>

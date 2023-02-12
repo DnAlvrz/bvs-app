@@ -1,0 +1,39 @@
+<table class="table">
+    <% months =  ['January', 'February', 'March', 'April', 'May', 'June', 'July', 'August', 'September', 'October', 'November', 'December'];%>
+    <thead>
+        <tr>
+            <th class="text-center">ID</th>
+            <th class="text-center">Title</th>
+            <th class="text-center">Customer</th>
+            <th class="text-center">Due date</th>
+            <th class="text-center">Total</th>
+            <th class="text-center">Action</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% if (rentals) { %>
+            <% rentals.forEach(rental => { %>
+                <tr>
+                    <td><%= rental._id %></td>
+                    <td scope="row">
+                        <%= rental.video.title %>
+                    </td>
+                    <td><%= rental.customer.givenName %> <%= rental.customer.lastName %></td>
+                    <td>
+                        <% const date = new Date(rental.dueDate)%>
+                        <%= months[date.getMonth()]%>
+                        <%= date.getDate()%>
+                        <%= date.getFullYear()%>
+                    </td>
+                    <td><%=rental.total%></td>
+                    <td scope="row">
+                        <button 
+                        onclick="updateRental('<%= rental._id%>')" 
+                        class="btn btn-primary" data-bs-toggle="modal" 
+                        data-bs-target="#updateRentalModal"> Return </button>
+                    </td>
+                </tr>
+            <% }) %>
+        <% } %>
+    </tbody>
+</table>

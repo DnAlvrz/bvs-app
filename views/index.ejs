@@ -1,5 +1,4 @@
 <%-include('includes/header') %>
-  <div class="col-md-9" >
     <div class="card" style="width:100%">
       <div class="card-body">
         <h5 class="card-title">Bogsy Video Store</h5>
@@ -13,7 +12,7 @@
               <div class="card-body text-center">
                 <i class="fas fa-house-user card-icon"></i>
                 <h5 class="card-text">
-                  50
+                  <%= videoCount %>
                 </h5>
               </div>
             </div>
@@ -27,7 +26,7 @@
               <div class="card-body text-center">
                 <i class="fas fa-users card-icon"></i>
                 <h5 class="card-text">
-                  50
+                  <%= customerCount %>
                 </h5>
               </div>
             </div>
@@ -40,7 +39,9 @@
               </div>
               <div class="card-body text-center">
                 <i class="fas fa-file-import card-icon"></i>
-                <h5 class="card-text">50</h5>
+                <h5 class="card-text">
+                  <%=rentalCount%>
+                </h5>
               </div>
             </div>
           </div>
@@ -48,5 +49,4 @@
        <div class="row">
       </div>
       </div>
-  </div>
 <%-include('includes/footer') %>

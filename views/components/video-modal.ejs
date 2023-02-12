@@ -1,0 +1,61 @@
+<!-- Modal -->
+<div class="modal modal-lg fade" id="videoModal" tabindex="-1" aria-labelledby="videoModal" aria-hidden="true">
+    <div class="modal-dialog modal-lg modal-dialog-scrollable"">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="videoFormTitle">New video</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <form action="/videos" method="POST" id="videoForm">
+            <div class="row mb-2">
+            <input type="hidden" class="form-control" id="videoId" name="id">
+              <div class="col-md-12">
+                <div class="form-group">
+                  <label for="title">Title</label>
+                  <input type="text" class="form-control" id="title" name="title" placeholder="Title" required>
+                </div>
+              </div>
+              <div class="col-md-12">
+                <div class="form-group">
+                    <label for="description">Description</label>
+                    <textarea type="text" name="description" class="form-control" id="description" placeholder="Aaa" required>
+                    </textarea>
+                </div>
+            </div>
+            <div class="row mb-2">
+            <div class="col-md-4">
+                <div class="form-group">
+                    <label for="copies">Copies</label>
+                    <input min="1" type="number" name="copies" class="form-control" id="copies" placeholder="Number of copies" required>
+                </div>  
+            </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="rentDays">Rent days</label>
+                  <input type="number" value="1" min="1" name="rentDays" max="3" class="form-control" id="rentDays" required>
+                </div>  
+              </div>
+              <div class="col-md-4">
+                <div class="form-group">
+                  <label for="catgory">Category</label>
+                  <select name="category" id="category" class="form-select" required>
+                    <option value="VCD">VCD</option>
+                    <option value="DVD">DVD</option>
+                  </select>
+                </div>  
+              </div>
+            </div>
+
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+          <button type="submit" class="btn btn-secondary">Submit</button>
+        </div>
+      </form>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!--End of modal-->
+  

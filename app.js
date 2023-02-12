@@ -1,14 +1,24 @@
-var createError = require('http-errors');
-var express = require('express');
-var path = require('path');
-var cookieParser = require('cookie-parser');
-var logger = require('morgan');
+const createError = require('http-errors');
+const express = require('express');
+const path = require('path');
+const cookieParser = require('cookie-parser');
+const logger = require('morgan');
+const indexRouter = require('./routes/index');
+const usersRouter = require('./routes/users');
+const colors = require('colors');
+const methodOverride = require('method-override');
+const app = express();
+const session = require('express-session');
+const connectDatabase = require('./config/db')
+const customerRouter = require('./routes/customer');
+const videoRouter = require('./routes/videos');
+const rentalRouter = require('./routes/rentals');
+const reportRouter = require('./routes/reports');
+require('dotenv').config();
 
-var indexRouter = require('./routes/index');
-var usersRouter = require('./routes/users');
+connectDatabase();
 
-var app = express();
-
+app.disable('x-powered-by');
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
 app.set('view engine', 'ejs');
@@ -17,13 +27,27 @@ app.use(logger('dev'));
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.use(cookieParser());
+app.use(methodOverride('_method'));
+app.use(session({
+  secret: 'super secret',
+  cookie: {maxAge: 9000000},
+  resave: false,
+  saveUninitialized: false
+}));
+
+const flash = require('express-flash')
 app.use(express.static(path.join(__dirname, 'public')));
+app.use(flash());
 app.use('/css', express.static(path.resolve(__dirname, 'public/stylesheets')));
 app.use('/js', express.static(path.resolve(__dirname, 'public/javascripts')));
 app.use('/img', express.static(path.resolve(__dirname, 'public/images')));
 
 app.use('/', indexRouter);
 app.use('/users', usersRouter);
+app.use('/videos', videoRouter);
+app.use('/customers', customerRouter);
+app.use('/reports', reportRouter);
+app.use('/rentals', rentalRouter);
 
 
 app.use((req, res,next) => {
