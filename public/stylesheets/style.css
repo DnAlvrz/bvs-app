@@ -1,0 +1,49 @@
+*,body {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box; 
+}
+
+.side-menu-item:hover>a{
+  background-color: #FFF;
+  color: rgb(97, 93, 93);
+}
+
+.side-menu-item i {
+  padding: 10px;
+  margin: 10px;
+}
+
+.card-icon {
+  font-size: 1.5em;
+}
+
+#home-card {
+  margin-top: 20px;
+}
+
+#offcials-table-home {
+  margin-top: 20px;
+}
+
+.form-container {
+  width: 90%;
+  margin: auto;
+  padding:10px;
+}
+
+.form-container input{
+  border-radius: 10px;
+}
+
+.btn-login {
+  border-radius: 10px;
+}
+
+.active-sidebar{
+  background-color: #f2f3f4;
+}
+
+.active-sidebar>a{
+  color: rgb(97, 93, 93)!important;
+}
