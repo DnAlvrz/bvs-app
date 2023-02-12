@@ -9,4 +9,6 @@ Please install the following
 ## Getting Started
 Navigate to the project folder and type:
 ```npm install```
+after installing the dependecies, type:
+```npm start```
 Then go to [Localhost](http://localhost:3000 "Don's github")
